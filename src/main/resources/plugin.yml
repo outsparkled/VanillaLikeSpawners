@@ -1,0 +1,6 @@
+name: VanillaLikeSpawners
+version: ${project.version}
+main: me.outsparkled.vanillalikespawners.VanillaLikeSpawners
+api-version: 1.16
+authors: [ outsparkled ]
+description: Mineable spawners, but in-keeping with vanilla!
