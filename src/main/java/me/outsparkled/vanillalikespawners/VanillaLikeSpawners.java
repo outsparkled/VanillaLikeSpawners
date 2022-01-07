@@ -1,7 +1,7 @@
 package me.outsparkled.vanillalikespawners;
 
-import me.outsparkled.vanillalikespawners.Events.SpawnerBreakEvent;
-import me.outsparkled.vanillalikespawners.Events.SpawnerPlaceEvent;
+import me.outsparkled.vanillalikespawners.listeners.SpawnerBreakEvent;
+import me.outsparkled.vanillalikespawners.listeners.SpawnerPlaceEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class VanillaLikeSpawners extends JavaPlugin {

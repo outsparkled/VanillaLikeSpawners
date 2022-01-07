@@ -1,4 +1,4 @@
-package me.outsparkled.vanillalikespawners.Events;
+package me.outsparkled.vanillalikespawners.listeners;
 
 import de.tr7zw.changeme.nbtapi.NBTItem;
 import org.bukkit.Material;

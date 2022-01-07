@@ -1,7 +1,6 @@
-package me.outsparkled.vanillalikespawners.Events;
+package me.outsparkled.vanillalikespawners.listeners;
 
-import de.tr7zw.changeme.nbtapi.NBTItem;
-import org.apache.commons.lang.WordUtils;
+import me.outsparkled.vanillalikespawners.util.SpawnerItemFactory;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -13,7 +12,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class SpawnerBreakEvent implements Listener {
 
@@ -26,20 +24,13 @@ public class SpawnerBreakEvent implements Listener {
         if (e.getBlock().getType().equals(Material.SPAWNER) && playerEquip.getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && playerEquip.getItemInMainHand().getType().toString().contains("PICKAXE") && e.getPlayer().getGameMode() != GameMode.CREATIVE) {
 
             Location location = e.getBlock().getLocation();
+            World world = location.getWorld();
             CreatureSpawner creatureSpawner = (CreatureSpawner) e.getBlock().getState();
-            ItemStack spawner = new ItemStack(Material.SPAWNER);
 
             e.setExpToDrop(0);
 
-            NBTItem nbti = new NBTItem(spawner);
-            nbti.setString("VLSSpawnerType", creatureSpawner.getSpawnedType().toString());
-            spawner = nbti.getItem();
+            ItemStack spawner = SpawnerItemFactory.createSpawner(creatureSpawner.getSpawnedType(), 1);
 
-            ItemMeta spawnerMeta = spawner.getItemMeta();
-            if (spawnerMeta != null) spawnerMeta.setDisplayName("§r§f" + WordUtils.capitalizeFully(creatureSpawner.getSpawnedType().toString().replace("_", " ")) + " Spawner");
-            spawner.setItemMeta(spawnerMeta);
-
-            World world = location.getWorld();
             if (world != null) world.dropItemNaturally(location, spawner);
         }
     }
