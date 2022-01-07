@@ -4,3 +4,13 @@ main: me.outsparkled.vanillalikespawners.VanillaLikeSpawners
 api-version: 1.16
 authors: [ outsparkled ]
 description: Mineable spawners, but in-keeping with vanilla!
+commands:
+  givespawner:
+    description: Gives a player a spawner
+    usage: /<command> <player> <spawner type>
+    permission: vanillalikespawners.give
+    permission-message: "§cYou do not have permission to use this command!"
+permissions:
+  vanillalikespawners.give:
+    description: Permission to give a player spawners
+    default: op

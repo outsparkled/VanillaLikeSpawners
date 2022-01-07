@@ -13,7 +13,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 
-public class SpawnerBreakEvent implements Listener {
+public class BlockBreakListener implements Listener {
 
     @EventHandler
     public void onBlockBreakEvent(BlockBreakEvent e) {
